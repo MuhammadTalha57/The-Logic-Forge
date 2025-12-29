@@ -12,7 +12,7 @@ Space Complexity = O(1)
 
 vector<int> solve(vector<int>& contributions) {
     int n = contributions.size();
-    if(n == 0) {return {};}
+    if(n < 2) {return vector<int>(n, 0);}
 
     vector<int> impact(n, 1);
     int suf = contributions.back();
@@ -27,10 +27,6 @@ vector<int> solve(vector<int>& contributions) {
         pre *= contributions[i];
     }
 
-    // Output
-    // for(int i = 0; i < n; i++) {cout << impact[i] << ' ';}
-    // cout << '\n';
-
     return impact;
 }
 
@@ -41,6 +37,7 @@ int main() {
 
     vector<int> contributions = {1, 2, 3, 4};
     solve(contributions);
+
 
     return 0;
 }
